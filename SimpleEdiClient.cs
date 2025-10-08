@@ -19,7 +19,11 @@ namespace DentaQuestTestHarness
         {
             _serviceUrl = serviceUrl;
 
+#if NET451
             var handler = new WebRequestHandler();
+#else
+            var handler = new HttpClientHandler();
+#endif
 
             if (clientCertificate != null)
             {
